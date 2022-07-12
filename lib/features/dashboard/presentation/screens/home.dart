@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../core/presentation/app_image.dart';
+import '../../../../core/presentation/app_top_widget.dart';
 import '../../../../utility/app_assets.dart';
 import '../../../../utility/app_colors.dart';
 import '../../../../utility/ui_utils.dart';
@@ -43,7 +44,16 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.only(left: 18, right: 18, top: 10),
           child: Column(
             children: [
-              const AppTopWidget(),
+              AppTopWidget(
+                firstIcon: AppImage(
+                  path: AppAssets.sms,
+                ),
+                firstHandler: () {},
+                secondIcon: AppImage(
+                  path: AppAssets.notification,
+                ),
+                secondHandler: (){},
+              ),
               const SizedBox(height: 22),
               Container(
                 width: double.infinity,
@@ -640,81 +650,81 @@ class YepHeader extends StatelessWidget {
   }
 }
 
-class AppTopWidget extends StatelessWidget {
-  const AppTopWidget({
-    Key? key,
-  }) : super(key: key);
+// class AppTopWidget extends StatelessWidget {
+//   const AppTopWidget({
+//     Key? key,
+//   }) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: [
+//         GestureDetector(
+//           onTap: () {},
+//           // onTap: () => Navigator.of(context).pushNamed(ProfileScreen.routeName),
+//           child: SizedBox(
+//             width: 33,
+//             height: 33,
+//             child: ClipRRect(
+//               borderRadius: BorderRadius.circular(20),
+//               child: AppImage(
+//                   path: "https://picsum.photos/200/300", isNetwork: true),
+//             ),
+//           ),
+//         ),
+//         const SizedBox(width: 10),
+//         const Spacer(),
+//         AppTopWidgetItem(
+//             icon: AppImage(path: AppAssets.sms),
+//             // title: "Inbox",
+//             handler: () {
+//               debugPrint("Inbox");
+//             }),
+//         const SizedBox(width: 15),
+//         AppTopWidgetItem(
+//             icon: AppImage(path: AppAssets.notification),
+//             // title: "Updates",
+//             handler: () {
+//               debugPrint("Notifications");
+//             }),
+//       ],
+//     );
+//   }
+// }
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        GestureDetector(
-          onTap: () {},
-          // onTap: () => Navigator.of(context).pushNamed(ProfileScreen.routeName),
-          child: SizedBox(
-            width: 33,
-            height: 33,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: AppImage(
-                  path: "https://picsum.photos/200/300", isNetwork: true),
-            ),
-          ),
-        ),
-        const SizedBox(width: 10),
-        const Spacer(),
-        AppTopWidgetItem(
-            icon: AppImage(path: AppAssets.sms),
-            // title: "Inbox",
-            handler: () {
-              debugPrint("Inbox");
-            }),
-        const SizedBox(width: 15),
-        AppTopWidgetItem(
-            icon: AppImage(path: AppAssets.notification),
-            // title: "Updates",
-            handler: () {
-              debugPrint("Notifications");
-            }),
-      ],
-    );
-  }
-}
+// class AppTopWidgetItem extends StatefulWidget {
+//   final Widget icon;
+//   final String? title;
+//   final void Function()? handler;
+//
+//   AppTopWidgetItem({
+//     required this.icon,
+//     this.handler,
+//     this.title,
+//   });
+//
+//   @override
+//   State<AppTopWidgetItem> createState() => _AppTopWidgetItemState();
+// }
 
-class AppTopWidgetItem extends StatefulWidget {
-  final Widget icon;
-  final String? title;
-  final void Function()? handler;
-
-  AppTopWidgetItem({
-    required this.icon,
-    this.handler,
-    this.title,
-  });
-
-  @override
-  State<AppTopWidgetItem> createState() => _AppTopWidgetItemState();
-}
-
-class _AppTopWidgetItemState extends State<AppTopWidgetItem> {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.handler,
-      child: Column(
-        children: [
-          widget.icon,
-          const SizedBox(height: 7),
-          if (widget.title != null)
-            Text(
-              widget.title!,
-              style: TextStyle(
-                  fontSize: scaledFontSize(8, context),
-                  fontWeight: FontWeight.w400),
-            )
-        ],
-      ),
-    );
-  }
-}
+// class _AppTopWidgetItemState extends State<AppTopWidgetItem> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: widget.handler,
+//       child: Column(
+//         children: [
+//           widget.icon,
+//           const SizedBox(height: 7),
+//           if (widget.title != null)
+//             Text(
+//               widget.title!,
+//               style: TextStyle(
+//                   fontSize: scaledFontSize(8, context),
+//                   fontWeight: FontWeight.w400),
+//             )
+//         ],
+//       ),
+//     );
+//   }
+// }
