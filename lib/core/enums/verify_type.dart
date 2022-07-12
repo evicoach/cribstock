@@ -1,0 +1,1 @@
+enum VerifyType { signup, changePassword }

@@ -1,0 +1,1 @@
+enum SwitchOptions { events, rewards }

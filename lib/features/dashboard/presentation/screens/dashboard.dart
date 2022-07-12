@@ -1,9 +1,12 @@
+import 'package:cribstock/features/dashboard/presentation/screens/home.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/presentation/app_image.dart';
+import '../../../../utility/app_assets.dart';
+import '../../../../utility/app_colors.dart';
+import '../../../../utility/ui_utils.dart';
+import 'stock.dart';
 
-import '../../../core/presentation/app_image.dart';
-import '../../banking/presentation/bloc/banking_bloc.dart';
-import '../../transfer/presentation/bloc/transfer_bloc.dart';
 
 class Dashboard extends StatefulWidget {
   static const routeName = "dash-board";
@@ -21,17 +24,16 @@ class _DashboardState extends State<Dashboard> {
   }
 
   int currentIndex = 0;
-  final List<Widget> _views = const [
-    Banking(),
-    CardsScreen(),
-    TransferPay(),
-    CreditScreen(),
-    RewardsScreen()
+  final List<Widget> _views = [
+    const HomeScreen(),
+    Container(),
+    const StockScreen(),
+    Container(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.white,
+        // backgroundColor: AppColors.white,
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -53,7 +55,22 @@ class _DashboardState extends State<Dashboard> {
           onTap: _selectTab,
           items: [
             BottomNavigationBarItem(
-                label: "Banking",
+                label: "Home",
+                icon: AppImage(path: AppAssets.cards),
+                activeIcon: AppImage(
+                    path: AppAssets.cards, color: AppColors.primaryColor)),
+            BottomNavigationBarItem(
+                label: "Report",
+                icon: AppImage(path: AppAssets.cards),
+                activeIcon: AppImage(
+                    path: AppAssets.cards, color: AppColors.primaryColor)),
+            BottomNavigationBarItem(
+                label: "Stock",
+                icon: AppImage(path: AppAssets.credit),
+                activeIcon: AppImage(
+                    path: AppAssets.credit, color: AppColors.primaryColor)),
+            BottomNavigationBarItem(
+                label: "Cards",
                 icon: AppImage(
                   path: AppAssets.banking,
                 ),
@@ -61,26 +78,6 @@ class _DashboardState extends State<Dashboard> {
                   path: AppAssets.banking,
                   color: AppColors.primaryColor,
                 )),
-            BottomNavigationBarItem(
-                label: "Cards",
-                icon: AppImage(path: AppAssets.cards),
-                activeIcon: AppImage(
-                    path: AppAssets.cards, color: AppColors.primaryColor)),
-            BottomNavigationBarItem(
-                label: "Transfer | Pay",
-                icon: AppImage(path: AppAssets.cards),
-                activeIcon: AppImage(
-                    path: AppAssets.cards, color: AppColors.primaryColor)),
-            BottomNavigationBarItem(
-                label: "Credit",
-                icon: AppImage(path: AppAssets.credit),
-                activeIcon: AppImage(
-                    path: AppAssets.credit, color: AppColors.primaryColor)),
-            BottomNavigationBarItem(
-                label: "Rewards",
-                icon: AppImage(path: AppAssets.rewards),
-                activeIcon: AppImage(
-                    path: AppAssets.rewards, color: AppColors.primaryColor)),
           ],
         ),
     );

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:yep/core/error/exceptions.dart';
+
+import '../core/error/exceptions.dart';
 
 class DioUtil {
   static String _handleError(DioError error) {
