@@ -152,6 +152,31 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 10,
               ),
+              const SizedBox(height: 15),
+              SizedBox(
+                  height: 70,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: (ctx, index) => Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 10, right: 10,bottom: 10),
+                          child: ClipRRect(
+                           borderRadius: BorderRadius.circular(20),
+                            child: Center(
+                                child: AppImage(
+                                  width: 40.0,
+                              height: 40.0,
+                              path: "https://picsum.photos/200/300",
+                              isNetwork: true,
+                            ),
+                          ),
+                          ),
+                        ),
+                        Text("Name")
+                      ],
+                    ))),
               AccountActions(
                 padding: const EdgeInsets.only(
                     top: 20, bottom: 20, left: 20, right: 20),
@@ -227,29 +252,34 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const Spacer(),
                   GestureDetector(
-                    onTap: ()=>AppWidget.showAppBottomSheet(context: context, children:  List.generate(20, (index) =>  TransactionItem(
-                        margin: const EdgeInsets.only(top: 10, bottom: 20),
-                        icon: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColors.tabOrange),
-                            child: const Icon(Icons.money)),
-                        title: const Text(
-                          "Food",
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        date: Text(
-                          "14 April, 2019",
-                          style: TextStyle(color: AppColors.grey),
-                        ),
-                        amount: Text(
-                          "\$${numberFormatter("450")}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w700,
-                          ),
-                        )))),
+                    onTap: () => AppWidget.showAppBottomSheet(
+                        context: context,
+                        children: List.generate(
+                            20,
+                            (index) => TransactionItem(
+                                margin:
+                                    const EdgeInsets.only(top: 10, bottom: 20),
+                                icon: Container(
+                                    width: 40,
+                                    height: 40,
+                                    decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: AppColors.tabOrange),
+                                    child: const Icon(Icons.money)),
+                                title: const Text(
+                                  "Food",
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                                date: Text(
+                                  "14 April, 2019",
+                                  style: TextStyle(color: AppColors.grey),
+                                ),
+                                amount: Text(
+                                  "\$${numberFormatter("450")}",
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                )))),
                     child: Text(
                       "See all",
                       style: TextStyle(
@@ -271,29 +301,31 @@ class _HomeScreenState extends State<HomeScreen> {
                   // border: Border.all(color: AppColors.grey),
                 ),
                 child: Column(
-                  children: List.generate(3, (index) =>  TransactionItem(
-                    margin: const EdgeInsets.only(top: 10, bottom: 20),
-                      icon: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.tabOrange),
-                          child: const Icon(Icons.money)),
-                      title: const Text(
-                        "Food",
-                        style: TextStyle(fontWeight: FontWeight.w700),
-                      ),
-                      date: Text(
-                        "14 April, 2019",
-                        style: TextStyle(color: AppColors.grey),
-                      ),
-                      amount: Text(
-                        "\$${numberFormatter("450")}",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ))),
+                  children: List.generate(
+                      3,
+                      (index) => TransactionItem(
+                          margin: const EdgeInsets.only(top: 10, bottom: 20),
+                          icon: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.tabOrange),
+                              child: const Icon(Icons.money)),
+                          title: const Text(
+                            "Food",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          date: Text(
+                            "14 April, 2019",
+                            style: TextStyle(color: AppColors.grey),
+                          ),
+                          amount: Text(
+                            "\$${numberFormatter("450")}",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ))),
                 ),
               )
             ],
