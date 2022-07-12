@@ -30,8 +30,10 @@ class AppAssets {
   static const onboardingImg = "assets/images/svg/onboarding_img.svg";
 
   static const notification = "assets/images/svg/notification.svg";
+  static const notificationBlack = "assets/images/svg/notification_black.svg";
   static const logout = "assets/images/svg/logout.svg";
   static const sms = "assets/images/svg/sms.svg";
+  static const smsBlack = "assets/images/svg/sms_black.svg";
   static const repeat = "assets/images/svg/repeat.svg";
   static const out = "assets/images/svg/out.svg";
   static const inside = "assets/images/svg/in.svg";

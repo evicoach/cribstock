@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 22),
               Container(
                 width: double.infinity,
-                height: height * 0.5,
+                height: height * 0.45,
                 padding: const EdgeInsets.only(
                     left: 10, top: 20, right: 10, bottom: 10),
                 decoration: BoxDecoration(
@@ -69,7 +69,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Column(
                       children: [
-                        const Text("Available balance"),
+                        const Text(
+                          "Available balance",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                         const SizedBox(height: 20),
                         Text(
                           "\$${numberFormatter("16485")}",
@@ -79,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         // const SizedBox(height: 20),
-                        Spacer(),
+                        const Spacer(),
                         GestureDetector(
                           onTap: () => AppWidget.showAppBottomSheet(
                               margin: EdgeInsets.zero,
@@ -120,10 +125,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(25),
                           child: AppImage(
-                              width: 50.0,
-                              height: 50.0,
-                              path: "https://picsum.photos/200/300",
-                              isNetwork: true),
+                            width: 50.0,
+                            height: 50.0,
+                            path: "https://picsum.photos/200/300",
+                            isNetwork: true,
+                          ),
                         ),
                         const Spacer(),
                         GestureDetector(
@@ -156,27 +162,56 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                   height: 70,
                   child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (ctx, index) => Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 10, right: 10,bottom: 10),
-                          child: ClipRRect(
-                           borderRadius: BorderRadius.circular(20),
-                            child: Center(
-                                child: AppImage(
-                                  width: 40.0,
-                              height: 40.0,
-                              path: "https://picsum.photos/200/300",
-                              isNetwork: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 10,
+                      itemBuilder: (ctx, index) {
+                        if (index == 0) {
+                          return Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(
+                                    left: 10, right: 10, bottom: 10),
+                                child: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.primaryColor,
+                                  ),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.search,
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const Text("Search")
+                            ],
+                          );
+                        }
+
+                        return Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(
+                                  left: 10, right: 10, bottom: 10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Center(
+                                  child: AppImage(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    path: "https://picsum.photos/200/300",
+                                    isNetwork: true,
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                          ),
-                        ),
-                        Text("Name")
-                      ],
-                    ))),
+                            Text("Name")
+                          ],
+                        );
+                      })),
               AccountActions(
                 padding: const EdgeInsets.only(
                     top: 20, bottom: 20, left: 20, right: 20),
@@ -528,7 +563,6 @@ class AccountTypeItem extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8, bottom: 8),
       child: Row(
         children: [
-          // AppImage(path: ""),
           Container(
               height: 41,
               width: 41,

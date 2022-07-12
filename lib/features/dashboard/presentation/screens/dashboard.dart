@@ -26,9 +26,9 @@ class _DashboardState extends State<Dashboard> {
   int currentIndex = 0;
   final List<Widget> _views = [
     const HomeScreen(),
-    Container(),
     const StockScreen(),
-    Container(),
+    const StockScreen(),
+    const HomeScreen(),
   ];
   @override
   Widget build(BuildContext context) {
