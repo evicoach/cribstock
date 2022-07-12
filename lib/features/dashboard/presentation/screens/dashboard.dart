@@ -30,25 +30,7 @@ class _DashboardState extends State<Dashboard> {
   ];
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<BankingBloc>(
-          create: (BuildContext context) => BankingBloc(),
-        ),
-        BlocProvider<CardsBloc>(
-          create: (BuildContext context) => CardsBloc(),
-        ),
-        BlocProvider<TransferBloc>(
-          create: (BuildContext context) => TransferBloc(),
-        ),
-        BlocProvider<CreditBloc>(
-          create: (BuildContext context) => CreditBloc(),
-        ),
-        BlocProvider<RewardsBloc>(
-          create: (BuildContext context) => RewardsBloc(),
-        ),
-      ],
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: AppColors.white,
         body: SafeArea(
           child: SingleChildScrollView(
@@ -101,7 +83,6 @@ class _DashboardState extends State<Dashboard> {
                     path: AppAssets.rewards, color: AppColors.primaryColor)),
           ],
         ),
-      ),
     );
   }
 }

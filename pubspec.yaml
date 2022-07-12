@@ -38,6 +38,22 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  intl:
+  get_it:
+  flutter_svg: ^1.1.0
+  cached_network_image:
+  skeleton_text:
+  pinput:
+  dio:
+  flutter_image_compress:
+  image_picker:
+  data_connection_checker:
+  flutter_bloc: 7.3.0
+  jovial_svg: ^1.1.5
+  dartz:
+  equatable:
+  shared_preferences:
+  dotted_border: ^2.0.0+2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
